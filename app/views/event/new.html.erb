@@ -1,0 +1,11 @@
+<h1>イベント作成</h1>
+<p>花を贈りたいイベントを入力してください</p>
+<%= form_tag("/event/create") do |f| %>
+  <%= label_tag :イベント名 %>
+  <%= text_field_tag :title %>
+  <%= label_tag :贈りたい日にち %>
+  <%= text_field_tag :date %>
+  <%= label_tag :ジャンル %>
+  <%= text_field_tag :genre %>
+  <%= submit_tag :追加 %>
+<% end %>

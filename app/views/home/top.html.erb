@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html>
+  <body>
+    <header>
+      <h1>フラワースタンド</h1>
+      <h2>あなたの思いを形に</h2>
+      <div class="topbar">
+        <p><%= link_to "ホーム", "/" %></p>
+        <p><%= link_to "フラワースタンドとは", "/index" %></p>
+        <% if user_signed_in? %>
+          <p><%= link_to "フラワースタンドを作る", "event/new" %></p>
+          <p><%= link_to "ログアウト", destroy_user_session_path, method: "delete" %></p>
+          <p><%= link_to current_user.email, "books/index" %></p>
+        <% else %>
+          <p><%= link_to "アカウント作成", new_user_registration_path %></p>
+          <p><%= link_to "ログイン", new_user_session_path %></p>
+        <% end %>
+      </div>
+    </header>
+
+    <main>
+      <div class="info">
+        <h2>お知らせ</h2>
+        <% @infomation.each do |infomation| %>
+          <li>
+            <%= link_to infomation.title, "/infomation/#{infomation.id}" %>
+            <%= infomation.image_name %>
+          </li>
+        <% end %>
+      </div>
+
+      <div class="eventlist">
+        <h2>フラワースタンド募集中</h2>
+        <% @events.each do |event| %>
+          <li>
+            <%= link_to event.title, "/event/#{event.id}" %>
+            <%= event.date %>
+            <%= event.create_user %>
+          </li>
+        <% end %>
+      </div>
+    </main>
+
+    <footer>
+      <p>copyright@2018FlowrStand</p>
+      <p>利用規約</p>
+    </footer>
+  </body>
+</html>
