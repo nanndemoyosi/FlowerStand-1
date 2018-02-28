@@ -1,8 +1,40 @@
-<main>
-  <div class="eventshow">
-    <h1><%= @event.title %></h1>
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<body>
+  <!--
+<header id ="top">
+-->
+<h1 id ="top"><%= @event.title %></h1>
+<!--
+</header>
+-->
+<div id ="img">
+　ここに画像を入れたい
+</div>
+
+<div id ="detail">
+  <div id ="explain">
+    <!--
     <p><%= @event.date %></p>
     <p><%= @event.genre %></p>
     <p><%= @event.create_user %></p>
+    -->
+    <table class="table1"border=1>
+        <tr><th><%= @event.date %></th>
+            <th><%= @event.genre %></th>
+            <th><%= @event.create_user %></th>
+        </tr>
+    </table>
+
   </div>
-</main>
+  <div id ="join">
+    参加
+  </div>
+</div>
+
+<div id ="bar">
+|---------------------|-----------------|
+</div>
+</body>
